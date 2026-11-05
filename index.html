@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Plan</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#272625">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="The Plan">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:#272625}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding:0;background:#272625;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+#gate{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;color:#F1EEE6;text-align:center}
+#gate form{width:100%;max-width:320px;display:flex;flex-direction:column;gap:12px}
+#gate h1{margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+#gate input{height:52px;border-radius:999px;border:1.5px solid #5A5853;background:transparent;color:#F1EEE6;font-size:17px;text-align:center;padding:0 18px;-webkit-appearance:none;appearance:none;box-sizing:border-box;width:100%}
+#gate input:focus{outline:none;border-color:#E8E4DA}
+#gate button{height:52px;border:0;border-radius:999px;background:#E8E4DA;color:#272625;font-size:16px;font-weight:600;cursor:pointer}
+#gate button[disabled]{opacity:.5}
+#msg{min-height:20px;font-size:14px;line-height:1.4;color:#DE9184;margin:0}
+</style>
+</head>
+<body>
+<main id="gate" hidden>
+  <form id="f" autocomplete="on">
+    <h1>The Plan</h1>
+    <input id="pw" type="password" name="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
+    <button id="go" type="submit">Unlock</button>
+    <p id="msg" role="status"></p>
+  </form>
+</main>
+<script src="boot.js"></script>
+</body>
+</html>
