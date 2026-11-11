@@ -1,6 +1,6 @@
 {
-  "name": "The Plan",
-  "short_name": "The Plan",
+  "name": "Kapp",
+  "short_name": "Kapp",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

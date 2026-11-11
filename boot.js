@@ -44,7 +44,7 @@
 
   function mount(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
-    document.title = "The Plan";
+    document.title = "Kapp";
     [...doc.head.children].forEach((n) => { if (n.tagName !== "TITLE") document.head.appendChild(n); });
     const scripts = [...doc.body.querySelectorAll("script")];
     scripts.forEach((s) => s.remove());
