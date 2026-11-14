@@ -1,6 +1,6 @@
 // Makes the app open with no signal. Newest version first, saved copy after 1.5 s.
 // Only the page's own encrypted files and fonts pass through here. Logs and GitHub calls never do.
-const CACHE = "the-plan-v1";
+const CACHE = "the-plan-v2";
 const SHELL = ["./", "./index.html", "./boot.js", "./app.enc", "./vault.json", "./manifest.webmanifest", "./icon-180.png", "./icon-512.png"];
 const TIMEOUT_MS = 1500;
 const FONT_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"];
@@ -9,7 +9,8 @@ self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => Promise.allSettled(SHELL.map((u) => c.add(u)))).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  // Only our own old copies: every app on keli69420.github.io shares this cache storage.
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith("the-plan-") && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 async function newestFirst(e) {
   const cache = await caches.open(CACHE);
